@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun clickOnInfo(view: View) {
-
+        val intent: Intent = Intent(this,StatisticsActivity::class.java)
+        startActivity(intent)
     }
     fun clickOnExit(view: View) {
         super.onBackPressed()

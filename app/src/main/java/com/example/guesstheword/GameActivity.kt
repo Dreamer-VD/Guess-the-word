@@ -1,16 +1,12 @@
 package com.example.guesstheword
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
-import android.graphics.Picture
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 class GameActivity : AppCompatActivity() {
@@ -29,6 +25,7 @@ class GameActivity : AppCompatActivity() {
         val button2:Button=findViewById(R.id.buttonClick2)
         val button3:Button=findViewById(R.id.buttonClick3)
         val button4:Button=findViewById(R.id.buttonClick4)
+        val buttonNext:Button=findViewById(R.id.buttonNext)
         button1.visibility=View.VISIBLE
         button2.visibility=View.VISIBLE
         button3.visibility=View.VISIBLE
@@ -42,14 +39,6 @@ class GameActivity : AppCompatActivity() {
         button3.setBackgroundColor(ContextCompat.getColor(this, R.color.ColorButton))
         button4.setBackgroundColor(ContextCompat.getColor(this, R.color.ColorButton))
             if (vopros == 0) {
-
-                Picture1.setImageResource(R.drawable.potch1)
-                Picture2.setImageResource(R.drawable.potch12)
-                Picture3.setImageResource(R.drawable.potch13)
-                Picture4.setImageResource(R.drawable.potch14)
-                vopros += 1
-            }
-            else if (vopros == 1) {
                 Picture1.setImageResource(R.drawable.potch2)
                 Picture2.setImageResource(R.drawable.potch22)
                 Picture3.setImageResource(R.drawable.potch23)
@@ -60,7 +49,7 @@ class GameActivity : AppCompatActivity() {
                 button3.text="Русь"
                 button4.text="Нет верного ответа"
             }
-            else if (vopros == 2) {
+            else if (vopros == 1) {
                 Picture1.setImageResource(R.drawable.potch3)
                 Picture2.setImageResource(R.drawable.potch32)
                 Picture3.setImageResource(R.drawable.potch33)
@@ -71,7 +60,7 @@ class GameActivity : AppCompatActivity() {
                 button3.text="Номер"
                 button4.text="Нет верного ответа"
             }
-            else if (vopros == 3) {
+            else if (vopros == 2) {
                 Picture1.setImageResource(R.drawable.potch4)
                 Picture2.setImageResource(R.drawable.potch42)
                 Picture3.setImageResource(R.drawable.potch43)
@@ -82,7 +71,7 @@ class GameActivity : AppCompatActivity() {
                 button3.text="Красота"
                 button4.text="Нет верного ответа"
             }
-            else if (vopros == 4) {
+            else if (vopros == 3) {
                 Picture1.setImageResource(R.drawable.potch5)
                 Picture2.setImageResource(R.drawable.potch52)
                 Picture3.setImageResource(R.drawable.potch53)
@@ -93,7 +82,7 @@ class GameActivity : AppCompatActivity() {
                 button3.text="Событие"
                 button4.text="Нет верного ответа"
             }
-            else if (vopros == 5) {
+            else if (vopros == 4) {
                 Picture1.setImageResource(R.drawable.potch6)
                 Picture2.setImageResource(R.drawable.potch62)
                 Picture3.setImageResource(R.drawable.potch63)
@@ -104,7 +93,7 @@ class GameActivity : AppCompatActivity() {
                 button3.text="Живодёрство"
                 button4.text="Нет верного ответа"
             }
-            else if (vopros == 6) {
+            else if (vopros == 5) {
                 Picture1.setImageResource(R.drawable.potch7)
                 Picture2.setImageResource(R.drawable.potch72)
                 Picture3.setImageResource(R.drawable.potch73)
@@ -115,7 +104,7 @@ class GameActivity : AppCompatActivity() {
                 button3.text="Удача"
                 button4.text="Нет верного ответа"
             }
-            else if (vopros == 7) {
+            else if (vopros == 6) {
                 Picture1.setImageResource(R.drawable.potch8)
                 Picture2.setImageResource(R.drawable.potch82)
                 Picture3.setImageResource(R.drawable.potch83)
@@ -126,7 +115,7 @@ class GameActivity : AppCompatActivity() {
                 button3.text="Обед"
                 button4.text="Нет верного ответа"
             }
-            else if (vopros == 8) {
+            else if (vopros == 7) {
                 Picture1.setImageResource(R.drawable.potch9)
                 Picture2.setImageResource(R.drawable.potch92)
                 Picture3.setImageResource(R.drawable.potch93)
@@ -137,7 +126,7 @@ class GameActivity : AppCompatActivity() {
                 button3.text="Круг"
                 button4.text="Нет верного ответа"
             }
-            else if (vopros == 9) {
+            else if (vopros == 8) {
                 Picture1.setImageResource(R.drawable.potch10)
                 Picture2.setImageResource(R.drawable.potch102)
                 Picture3.setImageResource(R.drawable.potch103)
@@ -147,6 +136,14 @@ class GameActivity : AppCompatActivity() {
                 button2.text="Окружность"
                 button3.text="Мяч"
                 button4.text="Нет верного ответа"
+                buttonNext.text="Конец"
+        }
+        else if (buttonNext.text=="Конец")
+        {
+            val intent = Intent(this, StatisticsActivity::class.java)
+            intent.putExtra("Number", win.toInt().toString())
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }
     }
     fun clickOt1(view: View) {
@@ -154,7 +151,7 @@ class GameActivity : AppCompatActivity() {
         val button2:Button=findViewById(R.id.buttonClick2)
         val button3:Button=findViewById(R.id.buttonClick3)
         val button4:Button=findViewById(R.id.buttonClick4)
-        if (button1.text=="Шахматы" && vopros==2) {
+        if (button1.text=="Шахматы" && vopros==1) {
             button2.visibility = View.INVISIBLE
             button3.visibility = View.INVISIBLE
             button4.visibility = View.INVISIBLE
@@ -162,7 +159,7 @@ class GameActivity : AppCompatActivity() {
             win+=1
             button1.isEnabled = false
         }
-        else if(button1.text=="Красный" && vopros==4)
+        else if(button1.text=="Красный" && vopros==3)
         {
             button2.visibility = View.INVISIBLE
             button3.visibility = View.INVISIBLE
@@ -171,7 +168,7 @@ class GameActivity : AppCompatActivity() {
             win+=1
             button1.isEnabled = false
         }
-        else if(button1.text=="Цирк" && vopros==6)
+        else if(button1.text=="Цирк" && vopros==5)
         {
             button2.visibility = View.INVISIBLE
             button3.visibility = View.INVISIBLE
@@ -194,7 +191,7 @@ class GameActivity : AppCompatActivity() {
         val button2:Button=findViewById(R.id.buttonClick2)
         val button3:Button=findViewById(R.id.buttonClick3)
         val button4:Button=findViewById(R.id.buttonClick4)
-        if (button2.text=="Ёлка" && vopros==0 || vopros==1) {
+        if (button2.text=="Ёлка" && vopros==0) {
             button1.visibility = View.INVISIBLE
             button3.visibility = View.INVISIBLE
             button4.visibility = View.INVISIBLE
@@ -202,7 +199,7 @@ class GameActivity : AppCompatActivity() {
             win+=1
             button2.isEnabled = false
         }
-        else if(button2.text=="Идея" && vopros==5)
+        else if(button2.text=="Идея" && vopros==4)
         {
             button1.visibility = View.INVISIBLE
             button3.visibility = View.INVISIBLE
@@ -211,7 +208,7 @@ class GameActivity : AppCompatActivity() {
             win+=1
             button2.isEnabled = false
         }
-        else if(button2.text=="Утро" && vopros==8)
+        else if(button2.text=="Утро" && vopros==7)
         {
             button1.visibility = View.INVISIBLE
             button3.visibility = View.INVISIBLE
@@ -234,7 +231,7 @@ class GameActivity : AppCompatActivity() {
         val button2:Button=findViewById(R.id.buttonClick2)
         val button3:Button=findViewById(R.id.buttonClick3)
         val button4:Button=findViewById(R.id.buttonClick4)
-        if (button3.text=="Номер" && vopros==3) {
+        if (button3.text=="Номер" && vopros==2) {
             button2.visibility = View.INVISIBLE
             button1.visibility = View.INVISIBLE
             button4.visibility = View.INVISIBLE
@@ -242,7 +239,7 @@ class GameActivity : AppCompatActivity() {
             win+=1
             button3.isEnabled = false
         }
-        else if(button3.text=="Удача" && vopros==7)
+        else if(button3.text=="Удача" && vopros==6)
         {
             button2.visibility = View.INVISIBLE
             button1.visibility = View.INVISIBLE
@@ -251,7 +248,7 @@ class GameActivity : AppCompatActivity() {
             win+=1
             button3.isEnabled = false
         }
-        else if(button3.text=="Круг" && vopros==9)
+        else if(button3.text=="Круг" && vopros==8)
         {
             button2.visibility = View.INVISIBLE
             button1.visibility = View.INVISIBLE
@@ -260,7 +257,7 @@ class GameActivity : AppCompatActivity() {
             win+=1
             button3.isEnabled = false
         }
-        else if(button3.text=="Мяч" && vopros==10)
+        else if(button3.text=="Мяч" && vopros==9)
         {
             button2.visibility = View.INVISIBLE
             button1.visibility = View.INVISIBLE
