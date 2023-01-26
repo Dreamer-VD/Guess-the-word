@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splashScreenColor"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/buttonClickGame"
+        style="@style/ThemeTextButton"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="52dp"
+        android:text="Играть"
+        android:onClick="clickOnGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameGame" />
+
+    <Button
+        android:id="@+id/buttonClickInfo"
+        style="@style/ThemeTextButton"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="25dp"
+        android:text="О программе"
+        android:textSize="16sp"
+        android:onClick="clickOnInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickGame" />
+
+    <Button
+        android:id="@+id/buttonClickExit"
+        style="@style/ThemeTextButton"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="25dp"
+        android:text="Выход"
+        android:onClick="clickOnExit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonClickInfo"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewNameGame"
+        android:layout_width="336dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="68dp"
+        android:gravity="center"
+        android:text="Угадай слово"
+        android:textColor="@color/ColorText"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
