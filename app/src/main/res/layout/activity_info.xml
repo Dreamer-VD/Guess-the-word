@@ -10,29 +10,28 @@
     <TextView
         android:id="@+id/textView"
         style="@style/ThemeTextButton"
-        android:layout_width="377dp"
-        android:layout_height="598dp"
+        android:layout_width="375dp"
+        android:layout_height="520dp"
         android:gravity="center"
         android:text="@string/textInfo"
-        android:textSize="34sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.075" />
 
     <Button
         android:id="@+id/buttonGoBackMenu"
         style="@style/ThemeTextButtonGame"
         android:layout_width="285dp"
         android:layout_height="82dp"
-        android:text="Вернуться в меню"
         android:onClick="ClickGoBack"
+        android:text="Вернуться в меню"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.289" />
+        app:layout_constraintVertical_bias="0.858" />
 </androidx.constraintlayout.widget.ConstraintLayout>

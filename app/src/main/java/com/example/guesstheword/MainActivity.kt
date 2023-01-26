@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun clickOnInfo(view: View) {
-        val intent: Intent = Intent(this,StatisticsActivity::class.java)
+        val intent: Intent = Intent(this,InfoActivity::class.java)
         startActivity(intent)
     }
     fun clickOnExit(view: View) {
